@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .post-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .post-content {
+            margin-top: 20px;
+        }
+
+        .user-comment {
+            margin-top: 20px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .comment-list {
+            margin-top: 10px;
+        }
+
+        .comment {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .vote-section {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .vote-btn {
+            cursor: pointer;
+            padding: 5px;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .comment-btn {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Posts</h1>
+    </header>
+
+    <div class="post-container">
+        <div class="post-header">
+            <span>Posted by: User1</span>
+            <div class="vote-section">
+                <button class="vote-btn" onclick="vote('upvote')">Upvote</button>
+                <button class="vote-btn" onclick="vote('downvote')">Downvote</button>
+            </div>
+        </div>
+        <div class="post-content">
+            <h2 id="postTitle">Post Title</h2>
+            <p id="postDescription">This is the content of the post. It can be quite long, and the design should handle it gracefully.</p>
+        </div>
+        <div class="user-comment">
+            <input type="text" class="comment-input" placeholder="Add your comment..." id="commentInput1">
+            <button class="comment-btn" onclick="addComment('commentInput1', 'commentList1')">Comment</button>
+        </div>
+        <div class="comment-list" id="commentList1">
+            <!-- Comments will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function vote(type) {
+            // Add your logic for handling votes (upvote/downvote) here
+            console.log(`User voted ${type}`);
+        }
+
+        function addComment(inputId, commentListId) {
+            const inputElement = document.getElementById(inputId);
+            const commentListElement = document.getElementById(commentListId);
+
+            const commentText = inputElement.value.trim();
+
+            if (commentText !== '') {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.textContent = commentText;
+
+                commentListElement.appendChild(commentElement);
+
+                // Clear the input field after adding a comment
+                inputElement.value = '';
+            }
+        }
+
+        function post() {
+            const titleInput = document.getElementById('titleInput');
+            const descriptionInput = document.getElementById('descriptionInput');
+            const postTitle = document.getElementById('postTitle');
+            const postDescription = document.getElementById('postDescription');
+
+            postTitle.textContent = titleInput.value.trim();
+            postDescription.textContent = descriptionInput.value.trim();
+        }
+    </script>
+    <div class="post-container">
+        <div class="post-header">
+            <span>Posted by: User2</span>
+            <div class="vote-section">
+                <button class="vote-btn" onclick="vote('upvote')">Upvote</button>
+                <button class="vote-btn" onclick="vote('downvote')">Downvote</button>
+            </div>
+        </div>
+        <div class="post-content">
+            <h2 id="postTitle">Post Title</h2>
+            <p id="postDescription">This is the content of the post. It can be quite long, and the design should handle it gracefully.</p>
+        </div>
+        <div class="user-comment">
+            <input type="text" class="comment-input" placeholder="Add your comment..." id="commentInput2">
+            <button class="comment-btn" onclick="addComment('commentInput2', 'commentList2')">Comment</button>
+        </div>
+        <div class="comment-list" id="commentList2">
+            <!-- Comments will be displayed here -->
+        </div>
+    </div>
+
+    <div class="post-container">
+        <div class="post-header">
+            <span>Posted by: User3</span>
+            <div class="vote-section">
+                <button class="vote-btn" onclick="vote('upvote')">Upvote</button>
+                <button class="vote-btn" onclick="vote('downvote')">Downvote</button>
+            </div>
+        </div>
+        <div class="post-content">
+            <h2 id="postTitle">Post Title</h2>
+            <p id="postDescription">This is the content of the post. It can be quite long, and the design should handle it gracefully.</p>
+        </div>
+        <div class="user-comment">
+            <input type="text" class="comment-input" placeholder="Add your comment..." id="commentInput3">
+            <button class="comment-btn" onclick="addComment('commentInput3', 'commentList3')">Comment</button>
+        </div>
+        <div class="comment-list" id="commentList3">
+            <!-- Comments will be displayed here -->
+        </div>
+    </div>
+</body>
+</html>
